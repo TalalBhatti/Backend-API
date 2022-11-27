@@ -1,5 +1,9 @@
 const express = require("express")
 const app= express();
+const cors = require("cors");
+
+app.use(cors());
+
 app.use(express.json());
 const bodyParser = require("body-parser")
 
@@ -9,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/data",(req,res)=>{
     // console.log("hello World");
+    res.header("Access-Control-Allow-Origin", "*");
     res.send({
         course: "Getting Started with React",
         duration: "4-weeks",
@@ -44,7 +49,7 @@ app.post("/login",(req,res)=>{
             success:false
         })
     }
-    res.send("Running")
+    // res.send("Running")
 })
 
 
