@@ -18,7 +18,7 @@ This is a basic backend server with two APIs.
    node --version
 2. Make sure the output shows a version equal to or higher than X.X.X.
 
-3. git clone https://github.com/your-username/your-repo.git
+3. git clone https://github.com/TalalBhatti/Backend-API.git
 
 4. cd your-repo
 
