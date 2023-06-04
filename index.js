@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 
 // Todo route
 app.get("/todo", (req, res) => {
-    console.log("Completed", req.body);
+    console.log("API hitted for /todo");
     res.send("Get to learn about Git, GitHub, Nodejs, Version-controlling");
 });
 
