@@ -1,64 +1,36 @@
-const express = require("express")
-const app= express();
+// Importing the required modules
+const express = require("express");
+const app = express();
 const cors = require("cors");
 
+// Setting the port number
+const Port = 3000;
+
+// Adding middleware to enable Cross-Origin Resource Sharing (CORS)
 app.use(cors());
 
+// Parsing JSON bodies
 app.use(express.json());
-const bodyParser = require("body-parser")
 
-
-
+// Parsing URL-encoded bodies
+const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/data",(req,res)=>{
-    // console.log("hello World");
-    res.header("Access-Control-Allow-Origin", "*");
+// Root route
+app.get("/", (req, res) => {
+    console.log("Root API Hit");
     res.send({
-        course: "Getting Started with React",
-        duration: "4-weeks",
-        startDate: "7th-Oct-2022",
-        endDate:"6th-Nov-2022",
-        certification:"after final project submission",
-        status:'ended'
-    })
-})
+        course: "Getting Started with NodeJs"
+    });
+});
 
-app.post("/login",(req,res)=>{
-    console.log(req.body);
-    let email = req.body.email;
-    let password = req.body.password;
+// Todo route
+app.get("/todo", (req, res) => {
+    console.log("Completed", req.body);
+    res.send("Get to learn about Git, GitHub, Nodejs, Version-controlling");
+});
 
-    if (!email){
-        return "Enter your Email"
-    }
-    if(!password){
-        return "Enter Your Password"
-    }
-    let emailValidator = "Admin@ncl.com";
-    let passValidator = "Admin123";
-    
-    if(email == emailValidator && password == passValidator){
-        res.send({
-            success:true
-        })
-        return 
-    }
-    else{
-        return res.send({
-            success:false
-        })
-    }
-    // res.send("Running")
-})
-
-
-app.post("/status",(req,res)=>{
-    console.log("Completed",req.body);
-    res.send("Good Work, Keep it up")
-})
-
-
-app.listen(8080, ()=>{
-    console.log("Server is running on nodejs port 8080")
-})
+// Starting the server
+app.listen(Port, () => {
+    console.log(`Server is running on Node.js port ${Port}`);
+});
