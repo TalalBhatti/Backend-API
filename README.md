@@ -27,3 +27,6 @@ This is a basic backend server with two APIs.
 6. node index.js
 
 This will start the application and you can access it at http://localhost:3000.
+
+If you found this helpful, don't forget to give it a ⭐️!
+
